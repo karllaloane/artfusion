@@ -2,7 +2,6 @@
   "name": "artfusion-front",
   "version": "0.1.0",
   "private": true,
-  "homepage": ".",
   "dependencies": {
     "@reduxjs/toolkit": "^2.2.5",
     "@stomp/stompjs": "^7.0.0",

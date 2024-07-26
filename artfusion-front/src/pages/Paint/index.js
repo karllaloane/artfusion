@@ -4,7 +4,7 @@ import Header from '../../components/HeaderPaint';
 import Sidebar from '../../components/SidebarPaint';
 import socketService from '../../services/socket';
 import Cookies from 'js-cookie';
-import Whiteboard from '../../components/whiteboard/whiteboard';
+import Whiteboard from '../../components/whiteboard/index';
 import { updateElement as updateElementInStore } from '../../components/whiteboard/whiteboardSlice';
 import { useDispatch } from 'react-redux';
 import { jwtDecode } from 'jwt-decode';
@@ -33,10 +33,12 @@ const Paint = () => {
     const setupSocket = (token) => {
         if (salaUUID) {
             socketService.connect(() => {
-                 let payload = jwtDecode(token);
-                 let usuario = JSON.parse(payload.usuario);
-                 const idUser = usuario.id;
-                console.log(`SE INSCREVENDO EM /topic/alteracoes/${salaUUID}/${idUser}`);
+                let payload = jwtDecode(token);
+                let usuario = JSON.parse(payload.usuario);
+                const idUser = usuario.id;
+                console.log(
+                    `SE INSCREVENDO EM /topic/alteracoes/${salaUUID}/${idUser}`
+                );
                 socketService.subscribe(
                     `/topic/alteracoes/${salaUUID}/${idUser}`,
                     (message) => {

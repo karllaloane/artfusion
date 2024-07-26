@@ -102,7 +102,8 @@ const Home = () => {
         if (token) {
             try {
                 const salaUUID = await ApiServices.abrirSala(arteId, token);
-                window.open(`/paint/${arteId}/${salaUUID}`, '_blank'); // Redirecionar para a página de pintura
+                //window.open(`/paint/${arteId}/${salaUUID}`, '_blank'); // Redirecionar para a página de pintura
+                navigate(`/paint/${arteId}/${salaUUID}`);
             } catch (error) {
                 console.error('Erro ao abrir sala:', error);
             }

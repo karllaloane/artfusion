@@ -58,11 +58,7 @@ const RoutesApp = () => {
                         element={<EditProfileModal />}
                     />
 
-                    <Route
-                        exact
-                        path="/ShareModal"
-                        element={<ShareModal />}
-                    />
+                    <Route exact path="/ShareModal" element={<ShareModal />} />
 
                     <Route path="*" element={<Login />} />
                     <Route
